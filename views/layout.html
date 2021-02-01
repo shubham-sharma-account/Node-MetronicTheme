@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<!-- BEGIN HEADER -->
+{% include "navbar.html" %}
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    {% include "sidebar.html" %}
+    <!-- END SIDEBAR -->
+    <!-- BEGIN SECTION -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="#">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            {% block title %}
+            {% endblock %}
+
+            {% block new %}
+            {% endblock %}
+
+            {% block profile %}
+            {% endblock %}
+
+            {% block dashboard %}
+            {% endblock %}
+
+            {% block adduser %}
+            {% endblock %}
+
+            {% block edituser %}
+            {% endblock %}
+        </div>
+    </div>
+    <!-- END SECTION -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+{% include "footer.html" %}
+<!-- END FOOTER -->
+
+{% endblock %}

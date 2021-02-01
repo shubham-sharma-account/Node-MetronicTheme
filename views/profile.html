@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<h2><u>Your Profile Information:</u></h2>
+{% endblock %}
+
+{% block head %}
+<style>
+    .col {
+        margin: auto;
+        margin-top: 5vh;
+        width: 50%;
+        padding: 5px;
+        box-shadow: 10px 10px 5px;
+        border: 3px solid gray;
+    }
+
+    span {
+        color: rgb(29, 36, 139);
+    }
+</style>
+{% endblock %}
+
+{% block profile %}
+<div class="container">
+    <div class="row">
+        <div class='col'>
+            <h1><u>Profile</u></h1>
+            <h3>Name: <span>{{ info.name }}</span></h3>
+            <h3>Date of Birth: <span>{{info.date}}</span></h3>
+            <h3>Eamil: <span>{{info.email}}</span></h3>
+            <h3>Address: <span>{{info.address1}} {{info.address2}}</span></h3>
+            <h3>City: <span>{{info.city}}</span></h3>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        body{
+            background-color:darkslategray;
+        }
+        .col {
+            margin: auto;
+            margin-top: 10vh;
+            width: 50%;
+            padding: 5px;
+            border: 5px solid black;
+            background-color: rgb(187, 174, 231);
+        }
+        span{
+            color: rgb(29, 36, 139);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class='col'>
+                <h1><u>Profile</u></h1>
+                <h3>Name: <span>{{ info.name }}</span></h3>
+                <h3>Date of Birth: <span>{{info.date}}</span></h3>
+                <h3>Eamil: <span>{{info.email}}</span></h3>
+                <h3>Address: <span>{{info.address1}}</span></h3>
+                <h3>City: <span>{{info.city}}</span></h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> -->

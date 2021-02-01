@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block new %}
+<div class="portlet box red">
+     <div class="portlet-title">
+          <div class="caption">
+               {% block title %}
+               <h2>Total Users</h2>
+               {% endblock %}
+          </div>
+     </div>
+     <div class="portlet-body">
+          <div class="table-scrollable">
+               <table class="table table-hover">
+                    <thead>
+                         <tr>
+                              <th scope="col">Name</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Phone</th>
+                              <th scope="col">Date of Birth</th>
+                              <th scope="col">Image</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Date</th>
+                              <th scope="col">Edit</th>
+                              <th scope="col">Delete</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         {% for data in details %}
+                         <tr>
+                              <td>{{data.name}}</td>
+                              <td>{{data.email}}</td>
+                              <td>{{data.phone}}</td>
+                              <td>{{data.date}}</td>
+                              <td>
+                                   {% if data.image %}
+                                   <img src='/upload/{{data.image}}' width='40px' height="40px">
+                                   {% endif %}
+                               </td>
+                              <td>{{data.address1}}, {{data.address2}}</td>
+                              <td>{{data.created_at|date('Y-m-d')}}</td>
+                              <td><a href="/edit/{{data.email}}"><button type="button" class="btn btn-warning btn-sm">Edit</button></a></td>
+                              <td><a href="/delete/{{data.email}}"><button type="button" onclick='return confirm("Do you want to delete this record?")' class="btn btn-danger btn-sm">Delete</button></a></td>
+                         </tr>
+                         {% endfor %}
+                    </tbody>
+               </table>
+          </div>
+          <div class="container">
+               {% if page > 1  %} 
+                   <a href="/list?page={{ page - 1}}&limit={{limit}}" class="btn btn-primary"> previous </a>
+               {% endif %}
+               <a href="" class="btn btn-primary"> {{page}} </a>
+               {% if page < pageCount %} 
+                   <a href="/list?page={{ page + 1 }}&limit={{limit}}" class="btn btn-primary"> next </a>
+               {% endif %}
+           </div>
+     </div>
+</div>
+{% endblock %}

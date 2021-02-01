@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block edituser %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h1>Edit User</h1>
+      </div>
+</div>
+<form id="myform" method='post'>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Name *</label>
+          <input type="text" class="form-control" id="name" name='name' value={{data.name}}>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Email *</label>
+          <input type="email" class="form-control" id="email" name='email' value={{data.email}}>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Phone *</label>
+          <input type="number" class="form-control" id="phone" name='phone'value={{data.phone}}>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Date *</label>
+          <input type="text" class="form-control" id="date" name='date' value={{data.date}}>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <label for="inputAddress">Address *</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Address Line1" name='address1' value={{data.address1}}>
+    </div>
+    <div class="form-group col-md-12">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Address Line2" name='address2' value={{data.address2}}>
+    </div>  
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control" id="inputCity" placeholder="City" name='city' value={{data.city}}>
+        </div>
+        <div class="form-group col-md-4">
+          <select id="inputState" class="form-control" name='state'>
+            <option selected>State</option>
+            <option value="UP" {% if state == 'data.UP' %} selected {% endif %}>UP</option>
+            <option value="HR" {% if state == 'data.HR' %} selected {% endif %}>HR</option>
+            <option value="HP" {% if state == 'data.HP' %} selected {% endif %}>HP</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <input type="text" class="form-control" id="inputZip" placeholder="Zip" name='zip' value={{data.zip}}>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+    <a href='/list'><button type="button" class="btn btn-primary" id="back-btn">Back</button></a>
+</form>
+{% endblock %}
